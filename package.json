@@ -1,0 +1,22 @@
+{
+  "name": "api-socket",
+  "version": "1.0.0",
+  "description": "api to save data",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "nodemon src/index.js"
+  },
+  "author": "Luis Abdiel Rivera Gayosso",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.0"
+  }
+}
