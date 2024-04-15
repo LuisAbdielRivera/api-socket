@@ -1,11 +1,11 @@
 import { compile } from 'ejs'
-import productDAO from '../dao/products.dao.js'
+import socketDAO from '../dao/sockets.dao.js'
 
 export const getAll = (req, res) => {
-    productDAO.getAll()
-    .then(products=>{
-        if(products != null){
-            res.json({products})
+    socketDAO.getAll()
+    .then(sockets=>{
+        if(sockets != null){
+            res.json({sockets})
         }else{
             res.json({ status: "Servidor no disponible" })
         }})
@@ -13,41 +13,41 @@ export const getAll = (req, res) => {
 }
 
 export const getOne = (req, res) => {
-    productDAO.getOne(req.params.bc)
-    .then(product => {
-        if(product != null)
-            res.json({product})
+    socketDAO.getOne(req.params.id)
+    .then(socket => {
+        if(socket != null)
+            res.json({socket})
         else
-            res.json({status:"Product not found"})
+            res.json({status:"Not found"})
     })
     .catch(err=>res.json({status: "Server unaviable"}))
 }
 
-export const insertProduct = (req, res) => {
-    productDAO.insertProduct (req.body)
+export const insertSocket = (req, res) => {
+    socketDAO.insertSocket (req.body)
     .then(result => {
         if(result)
-        res.json({status:"Product Saved"})
+        res.json({status:"Saved"})
     })
     .catch(err=>res.json({status: "Server unaviable"}))
 }
 
-export const updateProduct = (req, res) => {
-    productDAO.updateProduct (req.params.bc, req.body)
+export const updateSocket = (req, res) => {
+    socketDAO.updateSocket (req.params.id, req.body)
     .then(result => {
         if(result)
-            res.json({status:"Product update"})
+            res.json({status:"update"})
         else
             res.json({status: "Server unaviable"})
     })
     .catch(err=>res.json({status: "Server unaviable"}))
 }
 
-export const deleteProduct = (req, res) => {
-    productDAO.deleteProduct (req.params.bc)
+export const deleteSocket = (req, res) => {
+    socketDAO.deleteSocket (req.params.id)
     .then(result => {
         if(result)
-            res.json({status:"Product delete"})
+            res.json({status:"delete"})
         else
             res.json({status: "Server unaviable"})
     })

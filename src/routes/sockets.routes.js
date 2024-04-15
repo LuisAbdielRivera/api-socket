@@ -1,11 +1,11 @@
 import { Router } from "express"
-import { deleteProduct, getAll, getOne, insertProduct, updateProduct } from "../controllers/products.controller.js"
+import { deleteSocket, getAll, getOne, insertSocket, updateSocket } from "../controllers/sockets.cotroller.js"
 const router= Router()
 
 router.get('/', getAll)
-router.get('/:bc', getOne)
-router.post('/', insertProduct)
-router.put('/:bc', updateProduct)
-router.delete('/:bc', deleteProduct)
+router.get('/:id', getOne)
+router.post('/', insertSocket)
+router.put('/:id', updateSocket)
+router.delete('/:id', deleteSocket)
 
 export default router;

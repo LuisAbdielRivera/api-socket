@@ -1,38 +1,38 @@
-import Product from '../models/product.model.js'
+import Socket from '../models/socket.model.js'
 
-const productDAO = {}
+const socketDAO = {}
 
-productDAO.getAll = async() => {
-    const products = await Product.find()
-    return products
+socketDAO.getAll = async() => {
+    const sockets = await Socket.find()
+    return sockets
 }
 
-productDAO.getOne = async(bc) => {
-    const product = await Product.findOne({barcode:bc})
-    return product
+socketDAO.getOne = async(id) => {
+    const socket = await Socket.findOne({id:id})
+    return socket
 }
 
-productDAO.insertProduct = async(product) => {
-    const productSaved = new Product(product)
-    productSaved.save()
+socketDAO.insertSocket = async(socket) => {
+    const socketSaved = new Socket(socket)
+    socketSaved.save()
     return true
 }
 
-productDAO.updateProduct = async(bc, product) =>{
-    const productUpdated = await Product.findOneAndUpdate({barcode:bc}, product)
-    if(productUpdated != null){
+socketDAO.updateSocket = async(id, socket) =>{
+    const socketUpdated = await Socket.findOneAndUpdate({id:id}, socket)
+    if(socketUpdated != null){
         return true
     }else
         return false
 }
 
-productDAO.deleteProduct = async (bc) => {
-    const productDeleted = await Product.findOneAndDelete({barcode:bc})
-    console.log(productDeleted)
-    if(productDeleted!= null){
+socketDAO.deleteSocket = async (id) => {
+    const socketDeleted = await Socket.findOneAndDelete({id:id})
+    console.log(socketDeleted)
+    if(socketDeleted!= null){
         return true
     }else
         return false
 }
 
-export default productDAO
+export default socketDAO
