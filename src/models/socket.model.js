@@ -1,21 +1,20 @@
 import {Schema, model} from 'mongoose';
 
-const productSchema= new Schema({
-    barcode: {
+const socketSchema= new Schema({
+    id: {
         type: String,
         unique: true,
         require: true
     },
-    description: String,
-    brand: String,
-    price:Number,
-    cost: Number,
-    stock: Number,
-    expiredDate: String,
-    status: Number
+
+    led: Number,
+    potentiometer: Number,
+    distance_sensor:Number,
+    costtemperature_sensor: Number,
+
 },{
     versionKey: false,
     timestamps: true
 })
 
-export default model('sockets', productSchema)
+export default model('sockets', socketSchema)
