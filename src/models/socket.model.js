@@ -1,20 +1,16 @@
-import {Schema, model} from 'mongoose';
+import { Schema, model } from "mongoose";
 
-const socketSchema= new Schema({
-    id: {
-        type: String,
-        unique: true,
-        require: true
-    },
-
+const socketSchema = new Schema(
+  {
     led: Number,
     potentiometer: Number,
-    distance_sensor:Number,
+    distance_sensor: Number,
     costtemperature_sensor: Number,
-
-},{
+  },
+  {
     versionKey: false,
-    timestamps: true
-})
+    timestamps: true,
+  }
+);
 
-export default model('sockets', socketSchema)
+export default model("sockets", socketSchema);
